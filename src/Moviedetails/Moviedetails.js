@@ -6,8 +6,8 @@ function Moviedetails({updateId, movie}){
     return(
     <article className="movie-details">
         <button id='0' className="exit" onClick={()=>{updateId(0)}}>Back</button> 
-        <img src={_movie.backdrop_path}/>
-        <img src={_movie.poster_path}/>
+        <img alt='movie-poster-large' src={_movie.backdrop_path}/>
+        <img alt='movie-poster-small' src={_movie.poster_path}/>
         <ul className='info'>
             <li className='title' aria-label='movie-title'>{_movie.title}</li>
             <li>{_movie.tagline}</li>
