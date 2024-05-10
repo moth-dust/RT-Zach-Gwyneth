@@ -14,7 +14,7 @@ function Moviedetails({updateId, movie}){
             <li>{_movie.tagline}</li>
             <li className='bold'>Average Rating: {_movie.average_rating}</li>
             <Genres genres= {_movie.genres}/>
-            <li>Runtime: {_movie.runtime}</li>
+            <li>Runtime: {_movie.runtime} min.</li>
             <Budget budget= {_movie.budget}/>
             <FormattedDate date = {_movie.release_date}/>
             <li>{_movie.overview}</li>
