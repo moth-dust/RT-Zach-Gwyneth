@@ -6,7 +6,8 @@ function Moviedetails({updateId, movie}){
     return(
     <article className="movie-details">
         <button id='0' className="exit" onClick={()=>{updateId(0)}}>Back</button> 
-        <img className=""src="https://image.tmdb.org/t/p/original//oazPqs1z78LcIOFslbKtJLGlueo.jpg"/>
+        <img src={_movie.backdrop_path}/>
+        <img src={_movie.poster_path}/>
         <ul className='info'>
             <li className='title' aria-label='movie-title'>{_movie.title}</li>
             <li>{_movie.tagline}</li>
