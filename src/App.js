@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
-import {movieMockData} from './movieData';
+import {movieMockData, movieDetail} from './movieData';
 import Movies from './Movies/Movies';
 import Moviedetails from './Moviedetails/Moviedetails';
 
 function App() {
+  const [movieDetails, setMovieDetails] = useState({movieDetail});
   const [movies, setMovies] = useState({movieMockData});
   const [focusDetails, setFocusDetails] = useState(false)
-  const [focusId, setFocusId] = useState(0)
+  const [focusId, setFocusId] = useState(1)
   function updateId(id){
     setFocusId(id)
   };
@@ -23,7 +24,7 @@ function App() {
         {!focusDetails ? <Movies
          movies = {movies} updateId = {updateId}
         /> : <Moviedetails 
-        focusId = {focusId} updateId = {updateId}/*other details array should be passed in here as well, once made */
+        focusId = {focusId} updateId = {updateId} movieDetails = {movieDetails}
         />}
         </div>
       <footer>---</footer>
