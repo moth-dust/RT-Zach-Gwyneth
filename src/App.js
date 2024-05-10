@@ -24,7 +24,7 @@ function App() {
         {!focusDetails ? <Movies
          movies = {movies} updateId = {updateId}
         /> : <Moviedetails 
-        focusId = {focusId} updateId = {updateId} movieDetails = {movieDetails}
+        updateId = {updateId} movieDetails = {movieDetails}
         />}
         </div>
       <footer>---</footer>
