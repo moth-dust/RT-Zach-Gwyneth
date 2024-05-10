@@ -1,8 +1,7 @@
 img {
  width: 30%;
-};
+}
 
-.info {
+ul {
     list-style-type: none;
-    background-color: aqua;
-};
+}
