@@ -1,4 +1,5 @@
 import Budget from './Budget'
+import FormattedDate from './FormattedDate'
 import Genres from './Genres'
 import './Moviedetails.css'
 function Moviedetails({updateId, movie}){
@@ -15,8 +16,9 @@ function Moviedetails({updateId, movie}){
             <Genres genres= {_movie.genres}/>
             <li>Runtime: {_movie.runtime}</li>
             <Budget budget= {_movie.budget}/>
+            <FormattedDate date = {_movie.release_date}/>
             <li>{_movie.overview}</li>
-            <li>{_movie.release_date}</li>
+            
         </ul>
     </article>)
 };
