@@ -4,7 +4,7 @@ import Movies from './Movies/Movies';
 import Moviedetails from './Moviedetails/Moviedetails';
 
 function App() {
-  const [movieDetails, setMovieDetails] = useState({movieDetail});
+  const [movie, setMovie] = useState({movieDetail});
   const [movies, setMovies] = useState({movieMockData});
   const [focusDetails, setFocusDetails] = useState(false)
   const [focusId, setFocusId] = useState(1)
@@ -24,7 +24,7 @@ function App() {
         {!focusDetails ? <Movies
          movies = {movies} updateId = {updateId}
         /> : <Moviedetails 
-        updateId = {updateId} movieDetails = {movieDetails}
+        updateId = {updateId} movie = {movie}
         />}
         </div>
       <footer>---</footer>
