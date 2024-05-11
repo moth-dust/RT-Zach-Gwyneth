@@ -27,13 +27,13 @@ function App() {
 
   useEffect(()=>{
     focusId ? getMovie(focusId)
-    .then((response =>{if(response.ok){
-      return response.json();
-      }else{
-        throw new Error ('Oops! Something went wrong! :(');
-      }}))
-    .then(data => {setMovie(data.movie); setFocusDetails(true)})
-    .catch(error => console.error(error))
+      .then((response =>{if(response.ok){
+        return response.json();
+        }else{
+          throw new Error ('Oops! Something went wrong! :(');
+        }}))
+      .then(data => {setMovie(data.movie); setFocusDetails(true)})
+      .catch(error => console.error(error))
     : setFocusDetails(false);
   },[focusId]);
   
