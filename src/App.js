@@ -11,9 +11,11 @@ function App() {
   function updateId(id){
     setFocusId(id)
   };
+
   useEffect(()=>{
     focusId ? setFocusDetails(true) : setFocusDetails(false);
   },[focusId]);
+  
   return (
     <main>
       <header>Tomato</header>

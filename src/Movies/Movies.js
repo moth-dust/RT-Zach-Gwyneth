@@ -16,6 +16,7 @@ function Movies({movies, updateId}){
             />
         )
     })
+    
     return (
         <div className='movies-contaienr'>
             {movieCards}
