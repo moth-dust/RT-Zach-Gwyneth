@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Movies from './Movies/Movies';
 import Moviedetails from './Moviedetails/Moviedetails';
 import {getMovies, getMovie} from './Api';
+import StatusMessage from './StatusMessage';
 
 function App() {
   const [movie, setMovie] = useState({});
@@ -21,8 +22,8 @@ function App() {
         } else {
           throw new Error ('Oops! Something went wrong! :(');
         }}))
-      .then(data => {setMovies(data.movies);})
-      .catch(error => console.error(error))
+      .then(data => {setMovies(data.movies); setStatusMessage('')})
+      .catch(error => setStatusMessage(error))
   },[]);
 
   useEffect(()=>{
@@ -33,7 +34,7 @@ function App() {
           throw new Error ('Oops! Something went wrong! :(');
         }}))
       .then(data => {setMovie(data.movie); setFocusDetails(true)})
-      .catch(error => console.error(error))
+      .catch(error => setStatusMessage(error))
     : setFocusDetails(false);
   },[focusId]);
   
@@ -41,6 +42,9 @@ function App() {
     <main>
       <header>Tomato</header>
         <div className="center-view">
+        <StatusMessage
+          statusMessage={statusMessage}
+        />
         {!focusDetails ? <Movies
          movies = {movies} updateId = {updateId}
         /> : <Moviedetails 
