@@ -13,9 +13,11 @@ function Movies({movies, updateId}){
                 title={movie.title}
                 average_rating={movie.average_rating}
                 release_date={movie.release_date}
+                updateId={updateId}
             />
         )
     })
+
     console.log("Movie Cards: ", movieCards)
     return (
         <div className='movies-contaienr'>
