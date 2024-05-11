@@ -17,22 +17,23 @@ function App() {
     getMovies()
       .then((response =>{
         if(response.ok){
-          return response.json()
+          return response.json();
         } else {
-          throw new Error ('Oops! Something went wrong! :(')
+          throw new Error ('Oops! Something went wrong! :(');
         }}))
-      .then(data => {setMovies(data.movies)})
+      .then(data => {setMovies(data.movies);})
       .catch(error => console.error(error))
   },[]);
 
   useEffect(()=>{
     focusId ? getMovie(focusId)
     .then((response =>{if(response.ok){
-      return response.json()
-      }else{}
-      }))
-    .then(data => {setMovie(data.movie)
-      setFocusDetails(true)})
+      return response.json();
+      }else{
+        throw new Error ('Oops! Something went wrong! :(');
+      }}))
+    .then(data => {setMovie(data.movie); setFocusDetails(true)})
+    .catch(error => console.error(error))
     : setFocusDetails(false);
   },[focusId]);
   
