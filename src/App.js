@@ -20,10 +20,11 @@ function App() {
         if(response.ok){
           return response.json();
         } else {
+          setStatusMessage('Oops! Something went wrong! :(')
           throw new Error ('Oops! Something went wrong! :(');
         }}))
       .then(data => {setMovies(data.movies); setStatusMessage('')})
-      .catch(error => setStatusMessage(error))
+      .catch(error => console.error(error))
   },[]);
 
   useEffect(()=>{
@@ -31,10 +32,11 @@ function App() {
       .then((response =>{if(response.ok){
         return response.json();
         }else{
+          setStatusMessage('Oops! Something went wrong! :(')
           throw new Error ('Oops! Something went wrong! :(');
         }}))
       .then(data => {setMovie(data.movie); setFocusDetails(true)})
-      .catch(error => setStatusMessage(error))
+      .catch(error => console.log(error))
     : setFocusDetails(false);
   },[focusId]);
   
@@ -46,8 +48,10 @@ function App() {
           statusMessage={statusMessage}
         />
         {!focusDetails ? <Movies
+         statusMessage = {false}
          movies = {movies} updateId = {updateId}
         /> : <Moviedetails 
+        statusMessage = {false}
         updateId = {updateId} movie = {movie}
         />}
         </div>
