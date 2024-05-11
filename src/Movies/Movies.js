@@ -2,7 +2,7 @@ import "./Movies.css"
 import Card from "../Card/Card";
 
 function Movies({movies, updateId}){
-    const movieCards = movies.movieMockData.movies.map(movie => {
+    const movieCards = movies.map(movie => {
         return (
             <Card 
                 id={movie.id}

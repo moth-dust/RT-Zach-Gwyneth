@@ -2,10 +2,11 @@ import { useState, useEffect } from 'react';
 import {movieMockData, movieDetail} from './movieData';
 import Movies from './Movies/Movies';
 import Moviedetails from './Moviedetails/Moviedetails';
+import {getMovies, getMovie} from './Api';
 
 function App() {
   const [movie, setMovie] = useState({movieDetail});
-  const [movies, setMovies] = useState({movieMockData});
+  const [movies, setMovies] = useState(movieMockData.movies);
   const [focusDetails, setFocusDetails] = useState(false)
   const [focusId, setFocusId] = useState(0)
   function updateId(id){
@@ -13,7 +14,25 @@ function App() {
   };
 
   useEffect(()=>{
-    focusId ? setFocusDetails(true) : setFocusDetails(false);
+    getMovies()
+      .then((response =>{
+        if(response.ok){
+          return response.json()
+        } else {
+          throw new Error ('Oops! Something went wrong! :(')
+        }}))
+      .then(data => {setMovies(data.movies)})
+      .catch(error => console.error(error))
+  },[]);
+
+  useEffect(()=>{
+    focusId ? getMovie(focusId)
+    .then((response =>{if(response.ok){
+      return response.json()
+      }else{}
+      }))
+    .then()
+    : setFocusDetails(false);
   },[focusId]);
   
   return (
