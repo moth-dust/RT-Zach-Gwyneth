@@ -5,7 +5,7 @@ import Moviedetails from './Moviedetails/Moviedetails';
 import {getMovies, getMovie} from './Api';
 
 function App() {
-  const [movie, setMovie] = useState({movieDetail});
+  const [movie, setMovie] = useState({});
   const [movies, setMovies] = useState(movieMockData.movies);
   const [focusDetails, setFocusDetails] = useState(false)
   const [focusId, setFocusId] = useState(0)
@@ -31,7 +31,8 @@ function App() {
       return response.json()
       }else{}
       }))
-    .then()
+    .then(data => {setMovie(data.movie)
+      setFocusDetails(true)})
     : setFocusDetails(false);
   },[focusId]);
   
