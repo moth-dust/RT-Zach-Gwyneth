@@ -7,7 +7,7 @@ function App() {
   const [movie, setMovie] = useState({movieDetail});
   const [movies, setMovies] = useState({movieMockData});
   const [focusDetails, setFocusDetails] = useState(false)
-  const [focusId, setFocusId] = useState(1)
+  const [focusId, setFocusId] = useState(0)
   function updateId(id){
     setFocusId(id)
   };
