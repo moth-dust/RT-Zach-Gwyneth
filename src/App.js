@@ -11,9 +11,6 @@ function App() {
   function updateId(id){
     setFocusId(id)
   };
-  /*This hook listens for a change in focusId (the invocation of updateId),
-  and toggles the focusDetails state. I did this so that we wouldn't have to write and pass in a updateFocusId function, 
-  just the updateId function. Updating the id to 0 changes focusDetails back to false */
   useEffect(()=>{
     focusId ? setFocusDetails(true) : setFocusDetails(false);
   },[focusId]);
