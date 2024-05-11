@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
-import {movieMockData, movieDetail} from './movieData';
 import Movies from './Movies/Movies';
 import Moviedetails from './Moviedetails/Moviedetails';
 import {getMovies, getMovie} from './Api';
 
 function App() {
   const [movie, setMovie] = useState({});
-  const [movies, setMovies] = useState(movieMockData.movies);
+  const [movies, setMovies] = useState([]);
   const [focusDetails, setFocusDetails] = useState(false)
   const [focusId, setFocusId] = useState(0)
+  const [statusMessage, setStatusMessage] = useState('Loading...')
   function updateId(id){
     setFocusId(id)
   };
