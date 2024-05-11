@@ -1,4 +1,11 @@
-function Movies(){
-    return (<h1> hi </h1>)
+import "./Movies.css"
+import Card from "../Card/Card";
+
+function Movies(movies){
+
+    // const movieCards = movies.map()
+
+
+    return (<Card />)
 }
 export default Movies;
