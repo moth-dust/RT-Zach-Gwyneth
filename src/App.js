@@ -17,6 +17,7 @@ function App() {
   useEffect(()=>{
     getMovies()
       .then((response =>{
+        console.log(response)
         if(response.ok){
           return response.json();
         } else {
@@ -39,7 +40,7 @@ function App() {
       .catch(error => console.log(error))
     : setFocusDetails(false);
   },[focusId]);
-  
+
   return (
     <main>
       <header>Tomato</header>
