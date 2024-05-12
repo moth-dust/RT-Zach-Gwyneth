@@ -7,7 +7,7 @@
     border: 1px solid black;
     margin: 15px;
     color: rgb(255, 251, 247);
-    background-color: black;
+    background-color: rgb(0, 0, 0);
 
 }
 img{
@@ -19,9 +19,12 @@ img{
 }
 
 .card-info {
-    max-width: 87%;
+    max-width: 90%;
+    border: 10px;
+}
+
+.title{
     overflow: hidden;
     white-space: nowrap;
     text-overflow:ellipsis;
-    border: 10px;
 }
