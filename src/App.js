@@ -3,13 +3,14 @@ import Movies from './Movies/Movies';
 import Moviedetails from './Moviedetails/Moviedetails';
 import {getMovies, getMovie} from './Api';
 import StatusMessage from './StatusMessage';
+import './App.css'
 
 function App() {
   const [movie, setMovie] = useState({});
   const [movies, setMovies] = useState([]);
   const [focusDetails, setFocusDetails] = useState(false)
   const [focusId, setFocusId] = useState(0)
-  const [statusMessage, setStatusMessage] = useState('Loading...')
+  const [statusMessage, setStatusMessage] = useState('Loading... Taking a while? Try refreshing the page.')
   function updateId(id){
     setFocusId(id)
   };
@@ -21,8 +22,7 @@ function App() {
         if(response.ok){
           return response.json();
         } else {
-          setStatusMessage('Oops! Something went wrong! :(')
-          throw new Error ('Oops! Something went wrong! :(');
+          throw new Error ('Bad Request');
         }}))
       .then(data => {setMovies(data.movies); setStatusMessage('')})
       .catch(error => console.error(error))
@@ -30,20 +30,21 @@ function App() {
 
   useEffect(()=>{
     focusId ? getMovie(focusId)
-      .then((response =>{if(response.ok){
+      .then((response =>{
+        setStatusMessage('Loading... Taking a while? Try refreshing the page.');
+        if(response.ok){
         return response.json();
         }else{
-          setStatusMessage('Oops! Something went wrong! :(')
-          throw new Error ('Oops! Something went wrong! :(');
+          throw new Error ('Bad Request');
         }}))
-      .then(data => {setMovie(data.movie); setFocusDetails(true)})
+      .then(data => {setMovie(data.movie); setFocusDetails(true); setStatusMessage('')})
       .catch(error => console.log(error))
     : setFocusDetails(false);
   },[focusId]);
 
   return (
     <main>
-      <header>Tomato</header>
+      <header>Rancid Tomatillos</header>
         <div className="center-view">
         <StatusMessage
           statusMessage={statusMessage}
