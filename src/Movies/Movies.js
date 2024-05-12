@@ -2,8 +2,7 @@ import "./Movies.css"
 import Card from "../Card/Card";
 
 function Movies({movies, updateId}){
-    console.log("movies", movies)
-    const movieCards = movies.movieMockData.movies.map(movie => {
+    const movieCards = movies.map(movie => {
         return (
             <Card 
                 id={movie.id}
@@ -17,12 +16,11 @@ function Movies({movies, updateId}){
             />
         )
     })
-
-    console.log("Movie Cards: ", movieCards)
+    
     return (
         <div className='movies-contaienr'>
             {movieCards}
         </div>
     )
-}
+};
 export default Movies;
