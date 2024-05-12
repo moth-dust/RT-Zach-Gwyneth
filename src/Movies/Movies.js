@@ -18,7 +18,7 @@ function Movies({movies, updateId}){
     })
     
     return (
-        <div className='movies-contaienr'>
+        <div className='movies-container'>
             {movieCards}
         </div>
     )
