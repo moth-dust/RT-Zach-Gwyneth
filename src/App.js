@@ -3,6 +3,7 @@ import Movies from './Movies/Movies';
 import Moviedetails from './Moviedetails/Moviedetails';
 import {getMovies, getMovie} from './Api';
 import StatusMessage from './StatusMessage';
+import './App.css'
 
 function App() {
   const [movie, setMovie] = useState({});
