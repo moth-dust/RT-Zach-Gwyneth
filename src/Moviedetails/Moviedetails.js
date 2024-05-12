@@ -15,12 +15,10 @@ function Moviedetails({updateId, movie}){
                 <li className='bold'>Average Rating: {movie.average_rating.toFixed(1)}/10</li>
                 <Genres genres= {movie.genres}/>
                 <li className='details'>Runtime: {movie.runtime} min.</li>
-                <Budget budget= {movie.budget}/>
+                {movie.budget? <Budget budget= {movie.budget}/>:<li className='details'>No budget available</li>}
                 <FormattedDate date = {movie.release_date}/>
-                <li className='overview bold'>{movie.overview}</li>
-                
+                <li className='overview bold'>{movie.overview}</li>        
             </ul>
-            
         </div>
         <button id='0' className="exit" onClick={()=>{updateId(0)}}>{'... '}Back</button> 
     </article>)
