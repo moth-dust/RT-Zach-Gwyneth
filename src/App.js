@@ -44,7 +44,7 @@ function App() {
 
   return (
     <main>
-      <header>Tomato</header>
+      <header>Rancid Tomatillos</header>
         <div className="center-view">
         <StatusMessage
           statusMessage={statusMessage}

@@ -27,7 +27,6 @@ header, footer{
 }
 
 button{
-  
   background: none;
     color: inherit;
     border: none;
@@ -37,6 +36,7 @@ button{
     outline: inherit;
     color: rgb(195, 195, 195);
 }
+
 button:hover{
   color: rgb(231, 43, 43);
 }
