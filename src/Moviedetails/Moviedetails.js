@@ -2,6 +2,8 @@ import Budget from './Budget'
 import FormattedDate from './FormattedDate'
 import Genres from './Genres'
 import './Moviedetails.css'
+import PropTypes from 'prop-types'
+
 function Moviedetails({updateId, movie}){
     return(
     <article className="movie-details">
@@ -23,3 +25,8 @@ function Moviedetails({updateId, movie}){
 };
 
 export default Moviedetails
+
+Moviedetails.propTypes = {
+    updateId: PropTypes.func,
+    movie: PropTypes.object
+}
