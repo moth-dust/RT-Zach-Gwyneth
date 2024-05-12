@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+### Abstract:
+[//]: <> (Briefly describe what you built and its features. What problem is the app solving? How does this application solve that problem?)
+The app hosts fetches a library of movie information and presents them to the user on page load. From here, the user has the ability to select any individual movie and read an entirely new render of information for the selected movie. The user then has the ability to return to the main page and browse through all other movies. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Installation Instructions:
+[//]: <> (What steps does a person have to take to get your app cloned down and running?)
+1) Access the form here: https://github.com/moth-dust/rt-zach-gwyneth
+2) Copy the SSH repository URL git@github.com:moth-dust/rt-zach-gwyneth.git
+3) Open terminal and 'cd' into the directory you wish to clone 
+4) Clone the repository by submitting `git clone git@github.com:moth-dust/rt-zach-gwyneth.git`
 
-## Available Scripts
+### Preview of App:
+[//]: <> (Provide ONE gif or screenshot of your application - choose the "coolest" piece of functionality to show off.)
+![Catalog of movies loading into a re-rendering of a specified movie, back to the catalog of movies ](https://s2.ezgif.com/tmp/ezgif-2-0329b6002d.gif)
 
-In the project directory, you can run:
+### Context:
+[//]: <> (Give some context for the project here. How long did you have to work on it? How far into the Turing program are you?)
+This first part in a two-part project was assigned in Week 13 of Turing Boot Camp, due for review and continuation in week 12. This project was the introductory project of Turing School's "Module 3", each module being six weeks in length.
 
-### `npm start`
+### Contributors:
+[//]: <> (Who worked on this application? Link to their GitHubs.)
+Gwyneth Patrick: https://github.com/moth-dust
+Zach Wolek: https://github.com/zachwolek/
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Learning Goals:
+[//]: <> (What were the learning goals of this project? What tech did you work with?)
+The main learning goal of the project was to practice working with React. In this project, we had the ability to render a mapping of movie data in objects passed as props to components, and using conditional rendering to display UI elements based on user interactions. Hooks were used to call change to the state of information on the DOM, specifically useState() hooks data display and useEffect() for handling side effects resulting in fetch requests. PropTypes were used to verify the type of information being passed as a prop to each component. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Technologies used include React, JSX, React hooks, PropTypes, HTML, JS/ES6, CSS
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Wins + Challenges:
+[//]: <> (What are 2-3 wins you have from this project? What were some challenges you faced - and how did you get over them?)
+1) A large win involved implementing conditional rendering, which was an enjoyable merge of a large number of technologies and concepts learned up to this point. Because so much of our educational history thus far has been with "Vanilla JavaScript", it was a win to discover how to consolidate development needs into a method of higher performance. 
+2) A challenged faced was integrating the need for handling errors on fetch requests into React technology that deals with continual rendering. As a result, it required collaboration and independent research to learn how to adapt the useEffect() hook into error handling. 
