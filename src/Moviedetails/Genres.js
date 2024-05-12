@@ -3,6 +3,6 @@ function Genres({genres}){
         genreString+= ` ${genre}`
         return genreString
     },'')
-    return (<li className='bold'>{genresString}</li>)
+    return (<li className='bold details italic'>{genresString}</li>)
 }
 export default Genres;

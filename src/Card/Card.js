@@ -8,7 +8,7 @@ function Card({poster_path, id, title, average_rating, updateId}){
                 <li className="title">{title}</li>
                 <li>Rating: {average_rating.toFixed(1)}/10</li>
             </ul>
-            <button className='details' onClick={()=>updateId(id)}>Movie Details</button>
+            <button className='details' onClick={()=>updateId(id)}>Movie Details ...</button>
         </div>
     )
 }
