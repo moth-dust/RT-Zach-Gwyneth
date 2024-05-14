@@ -24,7 +24,8 @@ const navigate = useNavigate()
         } else {
           throw new Error ('Bad Request');
         }}))
-      .then(data => {setMovies(data.movies); setStatusMessage('');}).then(navigate('/movies' , {replace: true}))
+      .then(data => {setMovies(data.movies)})
+      .then(navigate('/movies', {replace: true}))
       .catch(error => console.error(error))
   },[]);
 
@@ -46,15 +47,10 @@ const navigate = useNavigate()
     <main>
       <header>Rancid Tomatillos</header>
         <div className="center-view">
-        <StatusMessage
-          statusMessage={statusMessage}
-        />
         <Routes>
-          <Route path='/' element={<Movies movies = {movies} updateId = {updateId}/>}/>
-          <Route path='/movies/:id' element={<Moviedetails 
-          statusMessage = {false}
-          updateId = {updateId} movie = {movie}     
-        />}></Route>
+          <Route path='/movies' element={<Movies movies = {movies} updateId = {updateId}/>}/>
+          <Route path='/movies/:id' element={<Moviedetails updateId = {updateId} movie = {movie}/>}/>
+          <Route path='*' element={<StatusMessage statusMessage={statusMessage}/>}/>
         </Routes>
         </div>
       <footer>---</footer>
