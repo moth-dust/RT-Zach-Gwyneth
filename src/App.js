@@ -4,7 +4,7 @@ import Moviedetails from './Moviedetails/Moviedetails';
 import {getMovies, getMovie} from './Api';
 import StatusMessage from './StatusMessage';
 import './App.css'
-import {Routes, Route, redirect} from 'react-router-dom'
+import {Routes, Route, useNavigate} from 'react-router-dom'
 function App() {
   const [movie, setMovie] = useState({});
   const [movies, setMovies] = useState([]);
@@ -14,7 +14,7 @@ function App() {
   function updateId(id){
     setFocusId(id)
   };
-
+const navigate = useNavigate()
   useEffect(()=>{
     getMovies()
       .then((response =>{
@@ -24,7 +24,7 @@ function App() {
         } else {
           throw new Error ('Bad Request');
         }}))
-      .then(data => {setMovies(data.movies); setStatusMessage(''); redirect('/movies')})
+      .then(data => {setMovies(data.movies); setStatusMessage('');}).then(navigate('/movies' , {replace: true}))
       .catch(error => console.error(error))
   },[]);
 
