@@ -5,6 +5,7 @@ import './Moviedetails.css'
 import PropTypes from 'prop-types'
 
 function Moviedetails({updateId, movie}){
+    
     return(
     <article className="movie-details">
         <img className='poster-large'alt='movie-poster-large' src={movie.backdrop_path}/>

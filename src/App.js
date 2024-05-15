@@ -25,7 +25,7 @@ const navigate = useNavigate()
           throw new Error ('Bad Request');
         }}))
       .then(data => {setMovies(data.movies)})
-      .then(navigate('/movies', {replace: true}))
+      .then(navigate('/movies'))
       .catch(error => console.error(error))
   },[]);
 
@@ -38,7 +38,8 @@ const navigate = useNavigate()
         }else{
           throw new Error ('Bad Request');
         }}))
-      .then(data => {setMovie(data.movie); setFocusDetails(true); setStatusMessage('')})
+      .then(data => {setMovie(data.movie); setStatusMessage('');})
+      .then(navigate(`movies/${focusId}`))
       .catch(error => console.log(error))
     : setFocusDetails(false);
   },[focusId]);
