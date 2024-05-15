@@ -9,6 +9,9 @@ const placeHolderMovie ={
 }
 function Moviedetails({updateId, movie}){
     const linkId = useParams().id
+    if(!movie.title){
+    updateId(linkId)
+    }
     return(
     <article className="movie-details">
         <img className='poster-large'alt='movie-poster-large' src={movie.backdrop_path}/>

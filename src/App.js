@@ -49,7 +49,7 @@ function App() {
         <div className="center-view">
         <Routes>
           <Route path='/movies' element={<Movies movies = {movies} updateId = {updateId}/>}/>
-          <Route path='/movies/:id' element={<Moviedetails movie = {movie}/>}/>
+          <Route path='/movies/:id' element={<Moviedetails updateId= {updateId} movie = {movie}/>}/>
           <Route path='*' element={<StatusMessage statusMessage={statusMessage}/>}/>
         </Routes>
         </div>
