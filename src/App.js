@@ -31,6 +31,7 @@ function App() {
   },[]);
 
   useEffect(()=>{
+    if(id){
     getMovie(id)
       .then((response =>{
         if(response.ok){
@@ -39,8 +40,9 @@ function App() {
           throw new Error ('Bad Request');
         }}))
       .then(data => {console.log(data.movie); setMovie(data.movie);})
-      .then(()=>{navigate(`/movies/${id}`)})
+      .then(navigate(`/movies/${id}`, {replace : true}))
       .catch(error => console.log(error))
+    }
   },[id]);
 
   return (

@@ -25,7 +25,7 @@ function Moviedetails({updateId, movie}){
                 {movie.genres? <Genres genres= {movie.genres}/>:''}
                 <li className='details'>Runtime: {movie.runtime} min.</li>
                 {movie.budget? <Budget budget= {movie.budget}/>:<li className='details'>No budget available</li>}
-                <FormattedDate date = {movie.release_date}/>
+                {movie.release_date?<FormattedDate date = {movie.release_date}/>:<li>no date</li>}
                 <li className='overview bold'>{movie.overview}</li>        
             </ul>
         </div>
