@@ -1,6 +1,7 @@
 import "./Movies.css"
 import Card from "../Card/Card";
 
+
 function Movies({movies, updateId}){
     const movieCards = movies.map(movie => {
         return (
