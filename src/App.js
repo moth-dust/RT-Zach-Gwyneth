@@ -5,6 +5,7 @@ import {getMovies, getMovie} from './Api';
 import StatusMessage from './StatusMessage';
 import './App.css'
 import {Routes, Route, useNavigate} from 'react-router-dom'
+
 function App() {
   const [movie, setMovie] = useState({});
   const [movies, setMovies] = useState([]);
@@ -13,7 +14,9 @@ function App() {
   function updateId(id){
     setId(id)
   };
-const navigate = useNavigate()
+
+  const navigate = useNavigate()
+
   useEffect(()=>{
     getMovies()
       .then((response =>{
@@ -28,9 +31,8 @@ const navigate = useNavigate()
   },[]);
 
   useEffect(()=>{
-    id ? getMovie(id)
+    getMovie(id)
       .then((response =>{
-        setStatusMessage('Loading... Taking a while? Try refreshing the page.');
         if(response.ok){
         return response.json();
         }else{
@@ -39,7 +41,6 @@ const navigate = useNavigate()
       .then(data => {console.log(data.movie); setMovie(data.movie);})
       .then(()=>{navigate(`/movies/${id}`)})
       .catch(error => console.log(error))
-    : navigate('/movies');
   },[id]);
 
   return (
@@ -48,7 +49,7 @@ const navigate = useNavigate()
         <div className="center-view">
         <Routes>
           <Route path='/movies' element={<Movies movies = {movies} updateId = {updateId}/>}/>
-          <Route path='/movies/:id' element={<Moviedetails updateId = {updateId} movie = {movie}/>}/>
+          <Route path='/movies/:id' element={<Moviedetails movie = {movie}/>}/>
           <Route path='*' element={<StatusMessage statusMessage={statusMessage}/>}/>
         </Routes>
         </div>
