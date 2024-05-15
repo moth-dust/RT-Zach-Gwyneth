@@ -3,8 +3,15 @@ import FormattedDate from './FormattedDate'
 import Genres from './Genres'
 import './Moviedetails.css'
 import PropTypes from 'prop-types'
+import {useParams, Link} from 'react-router-dom'
+const placeHolderMovie ={
 
+}
 function Moviedetails({updateId, movie}){
+    const linkId = useParams().id
+    if(!movie.title){
+    updateId(linkId)
+    }
     return(
     <article className="movie-details">
         <img className='poster-large'alt='movie-poster-large' src={movie.backdrop_path}/>
@@ -14,15 +21,17 @@ function Moviedetails({updateId, movie}){
             <ul className='info'>
                 <li className='title' aria-label='movie-title'>{movie.title}</li>
                 <li>{movie.tagline}</li>
-                <li className='bold'>Average Rating: {movie.average_rating.toFixed(1)}/10</li>
-                <Genres genres= {movie.genres}/>
+                <li className='bold'>Average Rating: {movie.average_rating}/10</li>
+                {movie.genres? <Genres genres= {movie.genres}/>:''}
                 <li className='details'>Runtime: {movie.runtime} min.</li>
                 {movie.budget? <Budget budget= {movie.budget}/>:<li className='details'>No budget available</li>}
-                <FormattedDate date = {movie.release_date}/>
+                {movie.release_date?<FormattedDate date = {movie.release_date}/>:<li>no date</li>}
                 <li className='overview bold'>{movie.overview}</li>        
             </ul>
         </div>
-        <button id='0' className="exit" onClick={()=>{updateId(0)}}>{'... '}Back</button> 
+        <Link to='/movies'>
+            <button className="exit">{'... '}Back</button> 
+        </Link>
     </article>)
 };
 
