@@ -25,7 +25,7 @@ function App() {
         } else {
           throw new Error ('Bad Request');
         }}))
-      .then(data => {setMovies(data.movies); setMovie({})})
+      .then(data => {setMovies(data.movies);})
       .then(navigate('/movies'))
       .catch(error => console.error(error))
   },[]);
@@ -39,8 +39,8 @@ function App() {
         }else{
           throw new Error ('Bad Request');
         }}))
-      .then(data => {console.log(data.movie); setMovie(data.movie);})
-      .then(navigate(`/movies/${id}`, {replace : true}))
+      .then(data => {setMovie(data.movie);})
+      .then(navigate(`/${id}`, {replace : true}))
       .catch(error => console.log(error))
     }
   },[id]);
@@ -51,7 +51,7 @@ function App() {
         <div className="center-view">
         <Routes>
           <Route path='/movies' element={<Movies movies = {movies} updateId = {updateId}/>}/>
-          <Route path='/movies/:id' element={<Moviedetails updateId= {updateId} movie = {movie}/>}/>
+          <Route path='/:id' element={<Moviedetails updateId= {updateId} movie = {movie}/>}/>
           <Route path='*' element={<StatusMessage statusMessage={statusMessage}/>}/>
         </Routes>
         </div>
