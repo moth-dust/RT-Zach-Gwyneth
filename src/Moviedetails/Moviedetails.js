@@ -21,7 +21,7 @@ function Moviedetails({updateId, movie}){
             <ul className='info'>
                 <li className='title' aria-label='movie-title'>{movie.title}</li>
                 <li>{movie.tagline}</li>
-                <li className='bold'>Average Rating: {movie.rating? movie.average_rating.toFixed(1):0}/10</li>
+                <li className='bold'>Average Rating: {movie.average_rating}/10</li>
                 {movie.genres? <Genres genres= {movie.genres}/>:''}
                 <li className='details'>Runtime: {movie.runtime} min.</li>
                 {movie.budget? <Budget budget= {movie.budget}/>:<li className='details'>No budget available</li>}

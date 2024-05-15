@@ -41,7 +41,7 @@ function App() {
         }}))
       .then(data => {setMovie(data.movie);})
       .then(navigate(`/${id}`, {replace : true}))
-      .catch(error => console.log(error))
+      .catch(error => {console.error(error)})
     }
   },[id]);
 
