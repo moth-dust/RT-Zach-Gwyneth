@@ -3,9 +3,15 @@ import FormattedDate from './FormattedDate'
 import Genres from './Genres'
 import './Moviedetails.css'
 import PropTypes from 'prop-types'
+import {useParams} from 'react-router-dom'
 
 function Moviedetails({updateId, movie}){
-    
+    const linkId = useParams().id
+    if(!movie.title){
+        return(
+            <div>hi</div>
+        )
+    } else {
     return(
     <article className="movie-details">
         <img className='poster-large'alt='movie-poster-large' src={movie.backdrop_path}/>
@@ -25,7 +31,7 @@ function Moviedetails({updateId, movie}){
         </div>
         <button id='0' className="exit" onClick={()=>{updateId(0)}}>{'... '}Back</button> 
     </article>)
-};
+}};
 
 export default Moviedetails
 

@@ -8,29 +8,27 @@ import {Routes, Route, useNavigate} from 'react-router-dom'
 function App() {
   const [movie, setMovie] = useState({});
   const [movies, setMovies] = useState([]);
-  const [focusDetails, setFocusDetails] = useState(false)
-  const [focusId, setFocusId] = useState(0)
+  const [id, setId] = useState(0)
   const [statusMessage, setStatusMessage] = useState('Loading... Taking a while? Try refreshing the page.')
   function updateId(id){
-    setFocusId(id)
+    setId(id)
   };
 const navigate = useNavigate()
   useEffect(()=>{
     getMovies()
       .then((response =>{
-        console.log(response)
         if(response.ok){
           return response.json();
         } else {
           throw new Error ('Bad Request');
         }}))
-      .then(data => {setMovies(data.movies)})
+      .then(data => {setMovies(data.movies); setMovie({})})
       .then(navigate('/movies'))
       .catch(error => console.error(error))
   },[]);
 
   useEffect(()=>{
-    focusId ? getMovie(focusId)
+    id ? getMovie(id)
       .then((response =>{
         setStatusMessage('Loading... Taking a while? Try refreshing the page.');
         if(response.ok){
@@ -38,11 +36,11 @@ const navigate = useNavigate()
         }else{
           throw new Error ('Bad Request');
         }}))
-      .then(data => {setMovie(data.movie); setStatusMessage('');})
-      .then(navigate(`movies/${focusId}`))
+      .then(data => {console.log(data.movie); setMovie(data.movie);})
+      .then(()=>{navigate(`/movies/${id}`)})
       .catch(error => console.log(error))
-    : setFocusDetails(false);
-  },[focusId]);
+    : navigate('/movies');
+  },[id]);
 
   return (
     <main>
