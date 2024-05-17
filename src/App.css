@@ -1,6 +1,8 @@
 
-main{
+body{
   background-color: rgb(20, 20, 20);
+}
+main{
   color: rgb(233, 48, 48);
   font-family:Georgia, 'Times New Roman', Times, serif
 }
