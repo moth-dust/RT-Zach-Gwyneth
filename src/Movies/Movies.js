@@ -1,8 +1,9 @@
 import "./Movies.css"
 import Card from "../Card/Card";
+import Livesearch from "./Livesearch";
 
 
-function Movies({movies, updateId}){
+function Movies({movies, updateId, updateLiveSearch}){
     const movieCards = movies.map(movie => {
         return (
             <Card 
@@ -19,8 +20,11 @@ function Movies({movies, updateId}){
     })
     
     return (
-        <div className='movies-container'>
-            {movieCards}
+        <div className="movies-and-search-container">
+            <Livesearch updateLiveSearch = {updateLiveSearch}/>
+            <div className='movies-container'>
+                {movieCards}
+            </div>
         </div>
     )
 };
