@@ -7,6 +7,7 @@ import './App.css'
 import {Routes, Route, useNavigate} from 'react-router-dom'
 
 function App() {
+  const [staticMovies, setStaticMovies] = useState([])
   const [movie, setMovie] = useState({});
   const [movies, setMovies] = useState([]);
   const [id, setId] = useState(0)
@@ -17,7 +18,7 @@ function App() {
   };
 
   function updateLiveSearch(searchQuery){
-    const searchResults = movies.filter(movie => movie.title.toLowerCase().includes(searchQuery.toLowerCase()))
+    const searchResults = staticMovies.filter(movie => movie.title.toLowerCase().includes(searchQuery.toLowerCase()))
     setMovies(searchResults)   
   }
   const navigate = useNavigate()
@@ -30,7 +31,7 @@ function App() {
         } else {
           throw new Error ('Bad Request');
         }}))
-      .then(data => {setMovies(data.movies);})
+      .then(data => {setMovies(data.movies); setStaticMovies(data.movies)})
       .then(navigate('/movies'))
       .catch(error => console.error(error))
   },[]);
