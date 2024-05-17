@@ -7,14 +7,22 @@ import './App.css'
 import {Routes, Route, useNavigate} from 'react-router-dom'
 
 function App() {
+  const [staticMovies, setStaticMovies] = useState([])
   const [movie, setMovie] = useState({});
   const [movies, setMovies] = useState([]);
   const [id, setId] = useState(0)
-  const [statusMessage, setStatusMessage] = useState('Loading... Taking a while? Try refreshing the page.')
+  const [statusMessage, setStatusMessage] = useState('')
   function updateId(id){
     setId(id)
   };
 
+  function updateLiveSearch(searchQuery){
+    const searchResults = staticMovies.filter(movie => movie.title.toLowerCase().includes(searchQuery.toLowerCase()))
+    setMovies(searchResults)
+    if(!searchResults[0]){
+      setMovies([{title: 'Uh oh! No Results.', key:'noresults'}])
+    }  
+  }
   const navigate = useNavigate()
 
   useEffect(()=>{
@@ -23,11 +31,14 @@ function App() {
         if(response.ok){
           return response.json();
         } else {
-          throw new Error ('Bad Request');
+          throw new Error ('Uh oh! something went wrong, please refresh the page or navigate to home page if issue persists.');
         }}))
-      .then(data => {setMovies(data.movies);})
-      .then(navigate('/movies'))
-      .catch(error => console.error(error))
+      .then(data => {setMovies(data.movies); setStaticMovies(data.movies)})
+      .then(navigate('/movies', {replace:true}))
+      .catch(error => {
+        setStatusMessage(error.toString())
+        navigate('/error',{replace: true})
+      })
   },[]);
 
   useEffect(()=>{
@@ -41,8 +52,10 @@ function App() {
         }}))
       .then(data => {setMovie(data.movie);})
       .then(navigate(`/${id}`, {replace : true}))
-      .catch(error => {console.error(error)})
-    }
+      .catch(error => {
+        setStatusMessage(error.toString())
+        navigate('/error',{replace: true})})
+      }
   },[id]);
 
   return (
@@ -50,9 +63,9 @@ function App() {
       <header id='header'>Rancid Tomatillos</header>
         <div className="center-view">
         <Routes>
-          <Route path='/movies' element={<Movies movies = {movies} updateId = {updateId}/>}/>
+          <Route path='/movies' element={<Movies movies = {movies} updateId = {updateId} updateLiveSearch = {updateLiveSearch}/>}/>
           <Route path='/:id' element={<Moviedetails updateId= {updateId} movie = {movie}/>}/>
-          <Route path='*' element={<StatusMessage statusMessage={statusMessage}/>}/>
+          <Route path='/error' element={<StatusMessage statusMessage={statusMessage}/>}/>
         </Routes>
         </div>
       <footer>---</footer>
