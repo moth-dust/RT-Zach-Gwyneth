@@ -11,7 +11,7 @@ function App() {
   const [movie, setMovie] = useState({});
   const [movies, setMovies] = useState([]);
   const [id, setId] = useState(0)
-  const [statusMessage, setStatusMessage] = useState('Loading... Taking a while? Try refreshing the page.')
+  const [statusMessage, setStatusMessage] = useState('')
   function updateId(id){
     setId(id)
   };
