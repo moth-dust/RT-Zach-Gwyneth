@@ -19,7 +19,10 @@ function App() {
 
   function updateLiveSearch(searchQuery){
     const searchResults = staticMovies.filter(movie => movie.title.toLowerCase().includes(searchQuery.toLowerCase()))
-    setMovies(searchResults)   
+    setMovies(searchResults)
+    if(!searchResults[0]){
+      setMovies([{title: 'Uh oh! No Results.'}])
+    }  
   }
   const navigate = useNavigate()
 

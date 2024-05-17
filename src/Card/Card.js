@@ -5,12 +5,12 @@ function Card({poster_path, id, title, average_rating, updateId}){
 
     return (
         <div className='movie-card'>
-            <img alt={`Movie poster for ${title}`} className='card-poster' src={poster_path}/>
+            {poster_path?<img alt={`Movie poster for ${title}`} className='card-poster' src={poster_path}/>:<div></div>}
             <ul className='card-info'>
                 <li className="title">{title}</li>
-                <li>Rating: {average_rating}/10</li>
+                {average_rating?<li>Rating: {average_rating}/10</li>:<li></li>}
             </ul>
-            <button className='details' onClick={()=>updateId(id)}>Movie Details ...</button>
+            {poster_path?<button className='details' onClick={()=>updateId(id)}>Movie Details ...</button>:<li>Please try adjusting search criteria.</li>}
         </div>
     )
 }
