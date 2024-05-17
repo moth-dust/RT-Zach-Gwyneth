@@ -10,11 +10,16 @@ function App() {
   const [movie, setMovie] = useState({});
   const [movies, setMovies] = useState([]);
   const [id, setId] = useState(0)
+  const [liveSearch, setLiveSearch] = useState('')
   const [statusMessage, setStatusMessage] = useState('Loading... Taking a while? Try refreshing the page.')
   function updateId(id){
     setId(id)
   };
 
+  function updateLiveSearch(searchQuery){
+    const searchResults = movies.filter(movie => movie.title.toLowerCase().includes(searchQuery.toLowerCase()))
+    setMovies(searchResults)   
+  }
   const navigate = useNavigate()
 
   useEffect(()=>{
@@ -50,7 +55,7 @@ function App() {
       <header>Rancid Tomatillos</header>
         <div className="center-view">
         <Routes>
-          <Route path='/movies' element={<Movies movies = {movies} updateId = {updateId}/>}/>
+          <Route path='/movies' element={<Movies movies = {movies} updateId = {updateId} updateLiveSearch = {updateLiveSearch}/>}/>
           <Route path='/:id' element={<Moviedetails updateId= {updateId} movie = {movie}/>}/>
           <Route path='*' element={<StatusMessage statusMessage={statusMessage}/>}/>
         </Routes>

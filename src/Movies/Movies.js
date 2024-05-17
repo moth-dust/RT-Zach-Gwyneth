@@ -3,12 +3,7 @@ import Card from "../Card/Card";
 import Livesearch from "./Livesearch";
 
 
-function Movies({movies, updateId}){
-    function liveSearch(searchQuery, cardsArray){
-        console.log('params', cardsArray, searchQuery)
-        const searchResults = cardsArray.filter(movie => movie.title.toLowerCase().includes(searchQuery.toLowerCase()))
-        console.log('output', searchResults)
-    }
+function Movies({movies, updateId, updateLiveSearch}){
     const movieCards = movies.map(movie => {
         return (
             <Card 
@@ -26,7 +21,7 @@ function Movies({movies, updateId}){
     
     return (
         <div className="movies-and-search-container">
-            <Livesearch liveSearch = {liveSearch} movies = {movies}/>
+            <Livesearch updateLiveSearch = {updateLiveSearch}/>
             <div className='movies-container'>
                 {movieCards}
             </div>

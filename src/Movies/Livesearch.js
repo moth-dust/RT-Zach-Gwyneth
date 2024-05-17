@@ -1,9 +1,8 @@
 import { getValue } from "@testing-library/user-event/dist/utils";
 
-function Livesearch({liveSearch, movies}){
-
+function Livesearch({updateLiveSearch, movies}){
 return(
-    <input className="live-search" onChange={(e)=>{liveSearch((e.target.value),movies)}}></input>
+    <input className="live-search" onChange={(e)=>{updateLiveSearch((e.target.value))}}></input>
 )
 }
 export default Livesearch;
