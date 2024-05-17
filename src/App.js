@@ -11,7 +11,6 @@ function App() {
   const [movie, setMovie] = useState({});
   const [movies, setMovies] = useState([]);
   const [id, setId] = useState(0)
-  const [liveSearch, setLiveSearch] = useState('')
   const [statusMessage, setStatusMessage] = useState('Loading... Taking a while? Try refreshing the page.')
   function updateId(id){
     setId(id)
@@ -32,11 +31,14 @@ function App() {
         if(response.ok){
           return response.json();
         } else {
-          throw new Error ('Bad Request');
+          throw new Error ('Uh oh! something went wrong, please refresh the page or navigate to home page if issue persists.');
         }}))
       .then(data => {setMovies(data.movies); setStaticMovies(data.movies)})
-      .then(navigate('/movies'))
-      .catch(error => console.error(error))
+      .then(navigate('/movies', {replace:true}))
+      .catch(error => {
+        setStatusMessage(error.toString())
+        navigate('/error',{replace: true})
+      })
   },[]);
 
   useEffect(()=>{
@@ -50,8 +52,10 @@ function App() {
         }}))
       .then(data => {setMovie(data.movie);})
       .then(navigate(`/${id}`, {replace : true}))
-      .catch(error => {console.error(error)})
-    }
+      .catch(error => {
+        setStatusMessage(error.toString())
+        navigate('/error',{replace: true})})
+      }
   },[id]);
 
   return (
@@ -61,7 +65,7 @@ function App() {
         <Routes>
           <Route path='/movies' element={<Movies movies = {movies} updateId = {updateId} updateLiveSearch = {updateLiveSearch}/>}/>
           <Route path='/:id' element={<Moviedetails updateId= {updateId} movie = {movie}/>}/>
-          <Route path='*' element={<StatusMessage statusMessage={statusMessage}/>}/>
+          <Route path='/error' element={<StatusMessage statusMessage={statusMessage}/>}/>
         </Routes>
         </div>
       <footer>---</footer>
