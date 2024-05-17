@@ -21,7 +21,7 @@ function App() {
     const searchResults = staticMovies.filter(movie => movie.title.toLowerCase().includes(searchQuery.toLowerCase()))
     setMovies(searchResults)
     if(!searchResults[0]){
-      setMovies([{title: 'Uh oh! No Results.'}])
+      setMovies([{title: 'Uh oh! No Results.', key:'noresults'}])
     }  
   }
   const navigate = useNavigate()
