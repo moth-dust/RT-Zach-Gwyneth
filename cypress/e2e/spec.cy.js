@@ -11,6 +11,26 @@ describe('RT Testing', () => {
     statusCode: 200,
     fixture: 'movieData.json'
     });
+
+    cy.intercept("GET", 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/436270', {
+      statusCode: 200, 
+      fixture: 'firstMovie.json'
+      });
+
+    cy.intercept("GET", 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/882598', {
+      statusCode: 200, 
+      fixture: 'lastMovie.json'
+      });
+
+    cy.intercept({
+      method: 'GET',
+      url: '/movies*',
+      hostname: 'localhost',
+      }, {
+      statusCode: 200, 
+      fixture: 'movieData.json'
+      });
+
     cy.visit('http://localhost:3000/')
   })
   
@@ -26,10 +46,6 @@ describe('RT Testing', () => {
   })
 
   it('Should click on the first movie and be shown additional details about that movie.', () => {
-    cy.intercept("GET", 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/436270', {
-      statusCode: 200, 
-      fixture: 'firstMovie.json'
-      });
     cy.get('.movies-container')
     .find('.movie-card').first()
     .find('button.details').click()
@@ -38,10 +54,6 @@ describe('RT Testing', () => {
   })
 
   it('Should click on the last movie and be shown additional details about that movie.', () => {
-    cy.intercept("GET", 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/882598', {
-      statusCode: 200, 
-      fixture: 'lastMovie.json'
-      });
     cy.get('.movies-container')
     .find('.movie-card').last()
     .find('button.details').click()
@@ -50,14 +62,11 @@ describe('RT Testing', () => {
   })
 
   it('Should return to the collection of movies clicking on the \'back\' button', () => {
-    cy.intercept("GET", '*/movies', {
-      statusCode: 200, 
-      fixture: 'movieData.json'
-      });
     cy.get('.movies-container')
     .find('.movie-card').first()
     .find('button.details').click()
     .get('.exit').click()
+    cy.url().should('include', '/movies')
     .get('.movies-container').get('.movie-card').should('have.length', 8)
     .get(".movie-card").first().should('contain.text', "Black Adam")
     .get(".movie-card").last().should('contain.text', "Smile")
