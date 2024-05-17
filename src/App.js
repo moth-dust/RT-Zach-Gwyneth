@@ -47,7 +47,7 @@ function App() {
 
   return (
     <main>
-      <header>Rancid Tomatillos</header>
+      <header id='header'>Rancid Tomatillos</header>
         <div className="center-view">
         <Routes>
           <Route path='/movies' element={<Movies movies = {movies} updateId = {updateId}/>}/>
