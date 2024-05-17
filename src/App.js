@@ -48,7 +48,7 @@ function App() {
         if(response.ok){
         return response.json();
         }else{
-          throw new Error ('Bad Request');
+          throw new Error ('Uh oh! something went wrong, please refresh the page or navigate to home page if issue persists.');
         }}))
       .then(data => {setMovie(data.movie);})
       .then(navigate(`/${id}`, {replace : true}))
