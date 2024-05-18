@@ -9,9 +9,17 @@ The app hosts fetches a library of movie information and presents them to the us
 3) Open terminal and 'cd' into the directory you wish to clone 
 4) Clone the repository by submitting `git clone git@github.com:moth-dust/rt-zach-gwyneth.git`
 
+For Testing:
+1) cd into the directory and run 'npm start' in the terminal
+2) In another tab in your terminal, run 'npm run cy:open" 
+3) Choose e2e testing
+4) Run on your browser of choice (Preferebly Chrome)
+5) Select 'rt-test.cy.js' in the browser
+
 ### Preview of App:
 [//]: <> (Provide ONE gif or screenshot of your application - choose the "coolest" piece of functionality to show off.)
-![Catalog of movies loading into a re-rendering of a specified movie, back to the catalog of movies ](https://s2.ezgif.com/tmp/ezgif-2-0329b6002d.gif)
+![Live search bar filters movies by title](https://ibb.co/JjGCB6g)
+![Movie information can be chosen directly](https://ibb.co/34hkB2b)
 
 ### Context:
 [//]: <> (Give some context for the project here. How long did you have to work on it? How far into the Turing program are you?)
