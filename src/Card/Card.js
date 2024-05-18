@@ -1,5 +1,5 @@
-import "./Card.css"
-import PropTypes from 'prop-types'
+import "./Card.css";
+import PropTypes from 'prop-types';
 
 function Card({poster_path, id, title, average_rating, updateId}){
 
@@ -12,10 +12,10 @@ function Card({poster_path, id, title, average_rating, updateId}){
             </ul>
             {poster_path?<button className='details' onClick={()=>updateId(id)}>Movie Details ...</button>:<li>Please try adjusting search criteria.</li>}
         </div>
-    )
-}
+    );
+};
 
-export default Card
+export default Card;
 
 Card.propTypes = {
     poster_path: PropTypes.string,

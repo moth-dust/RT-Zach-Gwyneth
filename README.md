@@ -8,6 +8,8 @@ The app hosts fetches a library of movie information and presents them to the us
 2) Copy the SSH repository URL git@github.com:moth-dust/rt-zach-gwyneth.git
 3) Open terminal and 'cd' into the directory you wish to clone 
 4) Clone the repository by submitting `git clone git@github.com:moth-dust/rt-zach-gwyneth.git`
+5) Run cmd `npm start` to launch the application.
+6) Go to `http://localhost:3000/` to view the application.
 
 For Testing:
 1) cd into the directory and run 'npm start' in the terminal
@@ -40,5 +42,7 @@ Technologies used include React, JSX, Cypress, React hooks, PropTypes, HTML, JS/
 
 ### Wins + Challenges:
 [//]: <> (What are 2-3 wins you have from this project? What were some challenges you faced - and how did you get over them?)
+
 1) A large with was implementing React Routes, namely discovering the efficiencies that go along with the new technologies. Designing and mapping Routes with dynamic paths created a cleaner, tightened code build. 
 2) Learning Cypress testing technology was another win, namely discovering the nearly limitless abilities of being able to test for virtually anything. A challenge was learning the process of intercepting requests, and the end result can now simulate page loads for a wide range of hypothetical errors. 
+
