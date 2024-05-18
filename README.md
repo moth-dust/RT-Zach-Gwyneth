@@ -8,6 +8,8 @@ The app hosts fetches a library of movie information and presents them to the us
 2) Copy the SSH repository URL git@github.com:moth-dust/rt-zach-gwyneth.git
 3) Open terminal and 'cd' into the directory you wish to clone 
 4) Clone the repository by submitting `git clone git@github.com:moth-dust/rt-zach-gwyneth.git`
+5) Run cmd `npm start` to launch the application.
+6) Go to `http://localhost:3000/` to view the application.
 
 ### Preview of App:
 [//]: <> (Provide ONE gif or screenshot of your application - choose the "coolest" piece of functionality to show off.)
