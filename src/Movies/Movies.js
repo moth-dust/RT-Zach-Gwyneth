@@ -1,7 +1,6 @@
-import "./Movies.css"
+import "./Movies.css";
 import Card from "../Card/Card";
 import Livesearch from "./Livesearch";
-
 
 function Movies({movies, updateId, updateLiveSearch}){
     const movieCards = movies.map(movie => {
@@ -16,8 +15,8 @@ function Movies({movies, updateId, updateLiveSearch}){
                 release_date={movie.release_date}
                 updateId={updateId}
             />
-        )
-    })
+        );
+    });
     
     return (
         <div className="movies-and-search-container">
@@ -26,6 +25,7 @@ function Movies({movies, updateId, updateLiveSearch}){
                 {movieCards}
             </div>
         </div>
-    )
+    );
 };
+
 export default Movies;

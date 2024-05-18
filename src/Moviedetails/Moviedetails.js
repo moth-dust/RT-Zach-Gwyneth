@@ -1,17 +1,15 @@
-import Budget from './Budget'
-import FormattedDate from './FormattedDate'
-import Genres from './Genres'
-import './Moviedetails.css'
-import PropTypes from 'prop-types'
-import {useParams, Link} from 'react-router-dom'
-const placeHolderMovie ={
+import Budget from './Budget';
+import FormattedDate from './FormattedDate';
+import Genres from './Genres';
+import './Moviedetails.css';
+import PropTypes from 'prop-types';
+import {useParams, Link} from 'react-router-dom';
 
-}
 function Moviedetails({updateId, movie}){
     const linkId = useParams().id
     if(!movie.title){
-    updateId(linkId)
-    }
+        updateId(linkId);
+    };
     return(
     <article className="movie-details">
         <img className='poster-large'alt='movie-poster-large' src={movie.backdrop_path}/>
@@ -32,7 +30,7 @@ function Moviedetails({updateId, movie}){
         <Link to='/movies'>
             <button className="exit">{'... '}Back</button> 
         </Link>
-    </article>)
+    </article>);
 };
 
 export default Moviedetails
